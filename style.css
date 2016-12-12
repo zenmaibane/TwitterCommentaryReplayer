@@ -1,3 +1,24 @@
 body {
-    background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0.0); 
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: normal;
+    user-select: none;
+    position: relative;
+}
+
+.comment {
+    position: absolute;
+    font-size: 24px;
+    line-height: 1;
+    z-index: 9;
+    color: #fff;
+    animation-name: lane0;
+    animation-timing-function: linear;
+    animation-duration: 8s;
+    animation-fill-mode: forwards;
+}
+@keyframes lane0 {
+from{ transform: translate(640px, 0); }
+to{ transform: translate(-1280px, 0); }
 }

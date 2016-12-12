@@ -5,24 +5,26 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
-// ‘S‚Ä‚ÌƒEƒBƒ“ƒhƒE‚ª•Â‚¶‚½‚çI—¹
+// å…¨ã¦ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ãŸã‚‰çµ‚äº†
 app.on('window-all-closed', function() {
-  if (process.platform != 'darwin') {
-    app.quit();
-  }
+    if (process.platform != 'darwin') {
+        app.quit();
+    }
 });
 
-// Electron‚Ì‰Šú‰»Š®—¹Œã‚ÉÀs
+// Electronã®åˆæœŸåŒ–å®Œäº†å¾Œã«å®Ÿè¡Œ
 app.on('ready', function() {
-  // ƒƒCƒ“‰æ–Ê‚Ì•\¦BƒEƒBƒ“ƒhƒE‚Ì•A‚‚³‚ğw’è‚Å‚«‚é
-  mainWindow = new BrowserWindow({
-      "width": 800,
-      "height": 600,
-  });
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
+    // ãƒ¡ã‚¤ãƒ³ç”»é¢ã®è¡¨ç¤ºã€‚ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¹…ã€é«˜ã•ã‚’æŒ‡å®šã§ãã‚‹
+     mainWindow = new BrowserWindow({
+        "width": 800,
+        "height": 600,
+        // "transparent": true,
+        // "frame": false
+    });
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
 
-  // ƒEƒBƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚½‚çƒAƒvƒŠ‚àI—¹
-  mainWindow.on('closed', function() {
-    mainWindow = null;
-  });
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚ŒãŸã‚‰ã‚¢ãƒ—ãƒªã‚‚çµ‚äº†
+    mainWindow.on('closed', function() {
+        mainWindow = null;
+    });
 });
