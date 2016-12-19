@@ -19,6 +19,9 @@ app.on('ready', function() {
         "width": 800,
         "height": 600,
         "transparent": true,
+         webPreferences: {
+             nodeIntegration: false
+         }
         // "frame": false
     });
     mainWindow.loadURL('file://' + __dirname + '/index.html');
