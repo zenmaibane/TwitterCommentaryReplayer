@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Sample</title>
-  <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <meta charset="UTF-8">
+    <title>Sample</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(window).resize(function () {
+            var w = $(window).width();
+            var h = $(window).height();
+            $('#screen').css({
+                width: w,
+                height: h
+            })
+        });
+    </script>
 </head>
+
 <body>
-  <div class="comment">
-    <p>Hello World</p>
-  </div>
-  <script type="text/javascript" src="test.js"></script>
+    <div id="nico">
+    </div>
+    <script src="nicoJS-master/nico-css.js"></script>
+    <script src="sample.js"></script>
 </body>
+
 </html>

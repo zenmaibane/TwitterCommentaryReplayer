@@ -1,24 +1,27 @@
-body {
-    background-color: rgba(0, 0, 0, 0.0); 
+#screen{
+    background-color:black;
+    width: 640px;
+    height: 360px;
     overflow: hidden;
-    white-space: nowrap;
-    cursor: normal;
+    white-space : nowrap;
+    cursor: default;
     user-select: none;
     position: relative;
 }
 
-.comment {
+.comment{
     position: absolute;
     font-size: 24px;
     line-height: 1;
-    z-index: 9;
+    z-index: 2;
     color: #fff;
+    text-shadow: -1px -1px #000, 1px -1px #000,	-1px 1px #000, 1px 1px #000;
     animation-name: lane0;
     animation-timing-function: linear;
     animation-duration: 8s;
     animation-fill-mode: forwards;
 }
-@keyframes lane0 {
+/*@keyframes lane0 {
 from{ transform: translate(640px, 0); }
 to{ transform: translate(-1280px, 0); }
-}
+}*/
