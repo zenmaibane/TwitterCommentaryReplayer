@@ -2,9 +2,5 @@ body {
     background-color: rgba(0, 0, 0, 0.0);
     white-space: nowrap;
     user-select: none;
-    position: relative;
-}
-
-.nico{
     overflow: hidden;
 }

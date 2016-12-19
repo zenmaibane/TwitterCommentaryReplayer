@@ -76,7 +76,7 @@ NicoCSS.prototype.send = function(text, color) {
 	var comment = document.createElement('div');
 	this.comment.push({
 		x: this.width,
-		y: Math.random()*(this.height-this.font),
+		y: Math.random()*(this.height-this.font-20),
 		ele: comment
 	});
 	var last = this.comment.length-1;
