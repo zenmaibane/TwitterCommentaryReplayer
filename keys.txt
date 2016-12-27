@@ -1,0 +1,3 @@
+consumer_key ='XXXXXXXXXXXXXX'
+consumer_secret = 'XXXXXXXXXXXXXX'
+bearer_token = 'XXXXXXXXXXXXXX'

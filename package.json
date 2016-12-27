@@ -8,5 +8,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "twitter": "latest"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
 }
