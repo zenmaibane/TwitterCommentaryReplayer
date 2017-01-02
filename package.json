@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "iconv": "^2.2.1",
+    "jschardet": "^1.4.1",
     "twitter": "latest"
   },
   "devDependencies": {

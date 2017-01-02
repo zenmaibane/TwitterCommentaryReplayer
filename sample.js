@@ -6,4 +6,7 @@ var nico = new NicoCSS({
     color: '#fff',                        // フォントカラー
     speed: 3                              // 流れるスピード
 });;
-nico.loop(['88888', 'かわいい', 'なんだこれw']);
+// nico.loop(['88888', 'かわいい', 'なんだこれw']);
+nico.listen();         // コメント待機
+nico.send('ニコニコ');  // コメント送信
+nico.send('つらくないですか');  // コメント送信

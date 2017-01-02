@@ -1,3 +1,3 @@
-consumer_key ='XXXXXXXXXXXXXX'
-consumer_secret = 'XXXXXXXXXXXXXX'
-bearer_token = 'XXXXXXXXXXXXXX'
+consumer_key ='zaYyuZDTedazdMPPJFa72Ad4W'
+consumer_secret = '97d5ABOznWsYfg9bk3GXki4OFZWsMdHZaeTMEpKDzUGoEalODV'
+bearer_token = 'AAAAAAAAAAAAAAAAAAAAALBByAAAAAAAWltADVCDgO05i67wgdS940p9%2BM4%3DLqeNu95fIfPJVaAm6cti6msEP41HclxQyNPfUHLs6yZE4wRth6'
