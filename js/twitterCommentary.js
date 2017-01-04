@@ -22,18 +22,17 @@ var client = new Twitter({
     consumer_secret: consumer_secret,
     bearer_token: bearer_token,
 });
-var comment = 'test';
-client.get('search/tweets', {q: "#とは -filter:retweets -filter:media",// since:2016-08-26 until:2016-08-27
-    count:2, in_reply_to_status_id: null}, function (error, tweets, response) {
+client.get('search/tweets', {q: "デレパ115・開場中！22時から放送です。 -filter:retweets -filter:media -filter:links",// since:2016-08-26 until:2016-08-27
+    count:10}, function (error, tweets, response) {
     if(error) throw error;
     for(var i = 0; i< tweets.statuses.length; i++){
-        console.log(tweets.statuses[i].text);  // The favorites.
-        comment = tweets.statuses[i].text;
+        if (!tweets.statuses[i].in_reply_to_status_id){
+            console.log(tweets.statuses[i].text);  // The favorites.
+        }
     }
-    comment = 'success';
     // console.log(response);  // Raw response object.
 });
-
+//
 // var nico = new NicoCSS({
 //     ele: document.getElementById("nico"), // スクリーンになる要素
 //     width: $(window).width() -20,                           // スクリーン幅
@@ -42,7 +41,7 @@ client.get('search/tweets', {q: "#とは -filter:retweets -filter:media",// sinc
 //     color: '#fff',                        // フォントカラー
 //     speed: 3                              // 流れるスピード
 // });
-
+//
 // nico.listen();
 // nico.send("fdaf");
 // nico.send(comment);
