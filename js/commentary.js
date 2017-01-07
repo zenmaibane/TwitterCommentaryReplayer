@@ -2,7 +2,7 @@ var nico = new NicoCSS({
     ele: document.getElementById("nico"), // スクリーンになる要素
     // width: $(window).width() -20,                           // スクリーン幅
     // height: $(window).height()-20,                          // スクリーン高さ
-    font: 50,                             // フォントサイズ
+    font: 30,                             // フォントサイズ
     color: '#fff',                        // フォントカラー
     speed: 3                              // 流れるスピード
 });
@@ -26,12 +26,6 @@ function initialize() {
 }
 initialize();
 
-$(window).on('resize', function(){
-    var height =  $(window).height() -20;
-    $("#nico").css("height", height + "px");
-    nico.height = height;
-});
-
 var client = new Twitter({
     consumer_key: consumer_key,
     consumer_secret: consumer_secret,
@@ -41,18 +35,40 @@ var client = new Twitter({
 $(function () {
     $('#test').click(()=>{
         client.get('search/tweets', {
-            q: "#imas_cg -filter:retweets -filter:media -filter:links",
+            q: "#とは -filter:retweets -filter:media -filter:links",
             count: 10
         }, function (error, tweets, response) {
             if (error) throw error;
             for (var i = 0; i < tweets.statuses.length; i++) {
                 if (!tweets.statuses[i].in_reply_to_user_id) {
-                    console.log(tweets.statuses[i].text);  // The favorites.
-                    nico.send(tweets.statuses[i].text);
+                    //ハッシュタグ消去
+                    console.log(tweets.statuses[i].text.replace(/#.+($| |\n)/g," "));
+                    nico.send(tweets.statuses[i].text.replace(/#.+($| |\n)/g," "));
                 }
             }
+            $(".nicojs-comment").bind("animationend webkitAnimationEnd", function(){
+                $(this).remove();
+                });
+            // var monkey = document.querySelectorAll(".nicojs-comment");
+            // for (var i = 0; i < monkey.length; i++){
+            //     monkey[i].addEventListener("animationend",function(e){
+            //         console.log(monkey[i]);
+            //     },false);
+            // }
         });
     })
 })
 
+//リサイズ処理
+$(window).on('load resize', function(){
+    var height =  $(window).height() -20;
+    $("#nico").css("height", height + "px");
+    nico.height = height;
+});
 
+//アニメーション終了処理
+// $(function(){
+//     $('.nicojs-comment').on('webkitAnimationEnd animationEnd', function(){
+//         console.log("OK");
+//     });
+// });
