@@ -14,8 +14,8 @@ function NicoCSS(params) {
 	this.comment = [];
 	this.font = params.font;
 	this.color = params.color;
-	this.width = params.width;
-	this.height = params.height;
+	// this.width = params.width;
+	// this.height = params.height;
 	// element
 	this.ele = params.ele;
 	this.ele.style.whiteSpace = 'nowrap';
@@ -53,7 +53,7 @@ NicoCSS.prototype.listen = function() {
 	style += '.nicojs-comment{';
 	style += 'animation: flow 8s linear 0s forwards;}';
 	style += '</style>';
-	document.head.innerHTML = style;
+    $("head").append(style);
 };
 
 /**
@@ -76,16 +76,16 @@ NicoCSS.prototype.send = function(text, color) {
 	var comment = document.createElement('div');
 	this.comment.push({
 		x: this.width,
-		y: Math.random()*(this.height-this.font-20),
+		y: Math.random()*(parseInt($("#nico").css("height")) - this.font-20),
 		ele: comment
 	});
 	var last = this.comment.length-1;
 	comment.innerHTML = text;
 	comment.className = 'nicojs-comment';
-	comment.style.position = 'absolute';
+	// comment.style.position = 'absolute';
 	comment.style.top = this.comment[last].y+'px';
 	comment.style.fontSize = this.font+'px';
-	comment.style.textShadow = '2px 2px 2px #111';
+	// comment.style.textShadow = '2px 2px 2px #111';
 	comment.style.color = (color === undefined) ?
 		this.color : color;
 	this.ele.appendChild(comment);

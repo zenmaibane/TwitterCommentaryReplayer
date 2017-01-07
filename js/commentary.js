@@ -1,11 +1,12 @@
 var nico = new NicoCSS({
     ele: document.getElementById("nico"), // スクリーンになる要素
-    width: $(window).width() -20,                           // スクリーン幅
-    height: $(window).height()-20,                          // スクリーン高さ
+    // width: $(window).width() -20,                           // スクリーン幅
+    // height: $(window).height()-20,                          // スクリーン高さ
     font: 50,                             // フォントサイズ
     color: '#fff',                        // フォントカラー
     speed: 3                              // 流れるスピード
 });
+
 nico.listen();
 var Twitter = require('twitter');
 
@@ -24,6 +25,12 @@ function initialize() {
     bearer_token = keys[2];
 }
 initialize();
+
+$(window).on('resize', function(){
+    nico.width = $(window).width -20;
+    nico.height = $(window).height -20;
+});
+
 var client = new Twitter({
     consumer_key: consumer_key,
     consumer_secret: consumer_secret,
