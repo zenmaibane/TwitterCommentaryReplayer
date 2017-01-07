@@ -27,8 +27,9 @@ function initialize() {
 initialize();
 
 $(window).on('resize', function(){
-    nico.width = $(window).width -20;
-    nico.height = $(window).height -20;
+    var height =  $(window).height() -20;
+    $("#nico").css("height", height + "px");
+    nico.height = height;
 });
 
 var client = new Twitter({

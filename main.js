@@ -22,9 +22,8 @@ app.on('ready', function () {
         "frame": false,
         "resizeble": true,
     });
-    // mainWindow.openDevTools();
+    mainWindow.openDevTools();
     mainWindow.loadURL('file://' + __dirname + '/index.html');
-
     // ウィンドウが閉じられたらアプリも終了
     mainWindow.on('closed', function () {
         mainWindow = null;

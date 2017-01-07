@@ -1,8 +1,9 @@
 body {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     white-space: nowrap;
     user-select: none;
     overflow: hidden;
+    -webkit-app-region: drag;
 }
 
 #nico{
@@ -16,4 +17,8 @@ body {
 #nico .nicojs-comment{
     position: absolute;
     text-shadow: 2px 2px 2px #111;
+}
+
+#test {
+    -webkit-app-region: no-drag;
 }
