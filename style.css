@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(220, 220, 220, 0.8);
     white-space: nowrap;
     user-select: none;
     overflow: hidden;
@@ -18,6 +18,22 @@ body {
     text-shadow: 2px 2px 2px #111;
 }
 
-#test {
+.no-drag {
     -webkit-app-region: no-drag;
 }
+
+#menu{
+    /*transition: 0.1s;*/
+    /*-webkit-transition: 0.1s;*/
+    /*opacity: 1;*/
+    transition: background-color 1s;
+    background-color: aliceblue;
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+/*#menu:hover{*/
+    /*background-color: rebeccapurple;*/
+    /*!*opacity: 0;*!*/
+    /*!*background-color: aliceblue;*!*/
+/*}*/

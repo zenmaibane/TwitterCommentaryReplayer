@@ -18,11 +18,16 @@ app.on('ready', function () {
     mainWindow = new BrowserWindow({
         "width": 800,
         "height": 600,
+        "minHeight": 300,
+        "minWidth": 300,
+        "resizeble": true,
+        "maximizable": true,
         "transparent": true,
         "frame": false,
-        "resizeble": true,
     });
-    mainWindow.openDevTools();
+    // mainWindow.openDevTools();
+    // console.log(mainWindow.isMaximizable());
+    // console.log(mainWindow.isResizable());
     mainWindow.loadURL('file://' + __dirname + '/index.html');
     // ウィンドウが閉じられたらアプリも終了
     mainWindow.on('closed', function () {

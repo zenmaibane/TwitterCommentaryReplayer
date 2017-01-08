@@ -33,42 +33,51 @@ var client = new Twitter({
 });
 
 $(function () {
-    $('#test').click(()=>{
+    $('#playComment').click(()=>{
+        // var endTime = $("#endTime").val() + ":00_JST";
+        var q = $("#hashtag").val() + " -filter:retweets -filter:media -filter:links since:" +
+            $("#startTime").val() + ":00_JST until:" + $("#endTime").val() + ":00_JST"
+        var count = 20;
         client.get('search/tweets', {
-            q: "#とは -filter:retweets -filter:media -filter:links",
-            count: 10
+            q: q,
+            count: count
         }, function (error, tweets, response) {
             if (error) throw error;
-            for (var i = 0; i < tweets.statuses.length; i++) {
+            var tweetIndex = tweets.statuses.length;
+            if (tweets.statuses.length > 5){
+                tweets.statuses.sort(compareFav);
+                tweetIndex = 5;
+            }
+            for (var i = 0; i < tweetIndex; i++) {
                 if (!tweets.statuses[i].in_reply_to_user_id) {
                     //ハッシュタグ消去
                     console.log(tweets.statuses[i].text.replace(/#.+($| |\n)/g," "));
+                    console.log(tweets.statuses[i].retweet_count);
+                    console.log(tweets.statuses[i].favorite_count);
                     nico.send(tweets.statuses[i].text.replace(/#.+($| |\n)/g," "));
                 }
             }
+            //アニメーション終了処理
             $(".nicojs-comment").bind("animationend webkitAnimationEnd", function(){
                 $(this).remove();
                 });
-            // var monkey = document.querySelectorAll(".nicojs-comment");
-            // for (var i = 0; i < monkey.length; i++){
-            //     monkey[i].addEventListener("animationend",function(e){
-            //         console.log(monkey[i]);
-            //     },false);
-            // }
         });
+
     })
 })
 
 //リサイズ処理
 $(window).on('load resize', function(){
-    var height =  $(window).height() -20;
-    $("#nico").css("height", height + "px");
-    nico.height = height;
+    var nicoHeight = $(window).height() -50;
+    $("#nico").css("height", nicoHeight + "px");
+    nico.height = nicoHeight;
 });
 
-//アニメーション終了処理
-// $(function(){
-//     $('.nicojs-comment').on('webkitAnimationEnd animationEnd', function(){
-//         console.log("OK");
-//     });
-// });
+function compareFav(a, b) {
+    var i = b.favorite_count - a.favorite_count;
+    if (i == 0){
+        return b.retweet_count - a.retweet_count;
+    }
+    return i;
+}
+
