@@ -24,10 +24,8 @@ app.on('ready', function () {
         maximizable: true,
         transparent: true,
         frame: false,
+        alwaysOnTop:true
     });
-    // mainWindow.openDevTools();
-    // console.log(mainWindow.isMaximizable());
-    // console.log(mainWindow.isResizable());
     mainWindow.loadURL('file://' + __dirname + '/index.html');
     // ウィンドウが閉じられたらアプリも終了
     mainWindow.on('closed', function () {

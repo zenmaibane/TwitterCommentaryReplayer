@@ -34,6 +34,8 @@ var client = new Twitter({
 
 $(function () {
     $('#playComment').click(() => {
+        $("body").css("background-color", "rgba(0, 0, 0, 0.0)");
+        $(".titlebar").css("background-color", "rgba(0, 0, 0, 0.0)");
         var hashtag = $("#hashtag").val();
         var startTime = $("#startTime").val() + ":00";
         var tempTime = startTime.split("_");
@@ -59,7 +61,6 @@ $(function () {
                     yield sleep(intervalMiliSeconds);
                     var q = hashtag + " -filter:retweets -filter:media -filter:links since:" +
                         formatDate(sinceTime) + "_JST until:" + formatDate(untilTime) + "_JST"
-                    console.log(q);
                     client.get('search/tweets', {
                         q: q,
                         count: 20
@@ -85,7 +86,6 @@ $(function () {
                     sinceTime.setSeconds(sinceTime.getSeconds() + intervalSeconds);
                     untilTime.setSeconds(untilTime.getSeconds() + intervalSeconds);
                 };
-                console.log("fin")
             });
     })
 })

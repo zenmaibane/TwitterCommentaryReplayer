@@ -9,7 +9,6 @@ body {
 #nico {
     white-space: nowrap;
     overflow: hidden;
-    /*position: relative;*/
     width: 100%;
 }
 #nico:-webkit-full-screen{
@@ -32,7 +31,6 @@ body {
 }
 #menu:hover{
     opacity: 1;
-    /*background-color: aliceblue;*/
 }
 .cell{
     text-align: center;
