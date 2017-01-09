@@ -14,13 +14,8 @@ function NicoCSS(params) {
 	this.comment = [];
 	this.font = params.font;
 	this.color = params.color;
-	// this.width = params.width;
-	// this.height = params.height;
 	// element
 	this.ele = params.ele;
-	// this.ele.style.whiteSpace = 'nowrap';
-	// this.ele.style.overflow = 'hidden';
-	// this.ele.style.position = 'relative';
 	this.ele.style.backgroundColor = 'rgba(0, 0, 0, 0.0);';
 	this.ele.style.width = this.width+'px';
 	this.ele.style.height = this.height+'px';
@@ -82,10 +77,8 @@ NicoCSS.prototype.send = function(text, color) {
 	var last = this.comment.length-1;
 	comment.innerHTML = text;
 	comment.className = 'nicojs-comment';
-	// comment.style.position = 'absolute';
 	comment.style.top = this.comment[last].y+'px';
 	comment.style.fontSize = this.font+'px';
-	// comment.style.textShadow = '2px 2px 2px #111';
 	comment.style.color = (color === undefined) ?
 		this.color : color;
 	this.ele.appendChild(comment);

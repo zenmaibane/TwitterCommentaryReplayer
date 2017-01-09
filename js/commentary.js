@@ -92,7 +92,7 @@ $(function () {
 
 //リサイズ処理
 $(window).on('load resize', function () {
-    var nicoHeight = $(window).height() - 70;
+    var nicoHeight = $(window).height() - 98;
     $("#nico").css("height", nicoHeight + "px");
     nico.height = nicoHeight;
 });

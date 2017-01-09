@@ -21,24 +21,24 @@ body {
 #nico .nicojs-comment {
     position: absolute;
     text-shadow: 2px 2px 2px #111;
+
 }
 
+#menu{
+    -webkit-transition: 0.2s;
+    opacity: 0;
+    padding-top: 20px;
+
+}
+#menu:hover{
+    opacity: 1;
+    /*background-color: aliceblue;*/
+}
+.cell{
+    text-align: center;
+}
 .no-drag {
     -webkit-app-region: no-drag;
 }
 
-#menu{
-    /*transition: 0.1s;*/
-    /*-webkit-transition: 0.1s;*/
-    /*opacity: 1;*/
-    transition: background-color 1s;
-    background-color: aliceblue;
-    margin-bottom: 100px;
-    width: 100%;
-}
 
-/*#menu:hover{*/
-    /*background-color: rebeccapurple;*/
-    /*!*opacity: 0;*!*/
-    /*!*background-color: aliceblue;*!*/
-/*}*/

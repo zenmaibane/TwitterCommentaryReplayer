@@ -18,8 +18,8 @@ app.on('ready', function () {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        minHeight: 300,
-        minWidth: 300,
+        minHeight: 360,
+        minWidth: 650,
         resizeble: true,
         maximizable: true,
         transparent: true,
