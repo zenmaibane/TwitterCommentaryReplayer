@@ -54,6 +54,7 @@ $(function () {
         }
 
         co(function *() {
+            var commentNum = 7;
                 for (var time = 0; time < operatingSecond; time += intervalSeconds) { //time < operatingSecond;
                     yield sleep(intervalMiliSeconds);
                     var q = hashtag + " -filter:retweets -filter:media -filter:links since:" +
@@ -65,9 +66,9 @@ $(function () {
                     }, function (error, tweets, response) {
                         if (error) throw error;
                         var tweetIndex = tweets.statuses.length;
-                        if (tweets.statuses.length > 5) {
+                        if (tweets.statuses.length > commentNum) {
                             tweets.statuses.sort(compareFav);
-                            tweetIndex = 5;
+                            tweetIndex = commentNum;
                         }
                         for (var i = 0; i < tweetIndex; i++) {
                             if (!tweets.statuses[i].in_reply_to_user_id) {
@@ -85,44 +86,13 @@ $(function () {
                     untilTime.setSeconds(untilTime.getSeconds() + intervalSeconds);
                 };
                 console.log("fin")
-            }
-        );
-        // var q = $("#hashtag").val() + " -filter:retweets -filter:media -filter:links since:" +
-        //     $("#startTime").val() + ":00_JST until:" + $("#endTime").val() + ":00_JST"
-        // var count = 20;
-        // var sleep = require('sleep-async')();
-        // sleep.sleep(3000,function () {
-        //     client.get('search/tweets', {
-        //         q: q,
-        //         count: count
-        //     }, function (error, tweets, response) {
-        //         if (error) throw error;
-        //         var tweetIndex = tweets.statuses.length;
-        //         if (tweets.statuses.length > 5){
-        //             tweets.statuses.sort(compareFav);
-        //             tweetIndex = 5;
-        //         }
-        //         for (var i = 0; i < tweetIndex; i++) {
-        //             if (!tweets.statuses[i].in_reply_to_user_id) {
-        //                 //ハッシュタグ消去
-        //                 console.log(tweets.statuses[i].text.replace(/#.+($| |\n)/g," "));
-        //                 console.log(tweets.statuses[i].retweet_count);
-        //                 console.log(tweets.statuses[i].favorite_count);
-        //                 nico.send(tweets.statuses[i].text.replace(/#.+($| |\n)/g," "));
-        //             }
-        //         }
-        //         //アニメーション終了処理
-        //         $(".nicojs-comment").bind("animationend webkitAnimationEnd", function(){
-        //             $(this).remove();
-        //         });
-        //     })
-        // });
+            });
     })
 })
 
 //リサイズ処理
 $(window).on('load resize', function () {
-    var nicoHeight = $(window).height() - 50;
+    var nicoHeight = $(window).height() - 70;
     $("#nico").css("height", nicoHeight + "px");
     nico.height = nicoHeight;
 });

@@ -16,14 +16,14 @@ app.on('window-all-closed', function () {
 app.on('ready', function () {
     // メイン画面の表示。ウィンドウの幅、高さを指定できる
     mainWindow = new BrowserWindow({
-        "width": 800,
-        "height": 600,
-        "minHeight": 300,
-        "minWidth": 300,
-        "resizeble": true,
-        "maximizable": true,
-        "transparent": true,
-        "frame": false,
+        width: 800,
+        height: 600,
+        minHeight: 300,
+        minWidth: 300,
+        resizeble: true,
+        maximizable: true,
+        transparent: true,
+        frame: false,
     });
     // mainWindow.openDevTools();
     // console.log(mainWindow.isMaximizable());

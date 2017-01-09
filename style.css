@@ -12,6 +12,11 @@ body {
     /*position: relative;*/
     width: 100%;
 }
+#nico:-webkit-full-screen{
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: rgba(220, 220, 220, 0.8);
+}
 
 #nico .nicojs-comment {
     position: absolute;

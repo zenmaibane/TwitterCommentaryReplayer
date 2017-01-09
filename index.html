@@ -8,12 +8,35 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery_after.js"></script>
 </head>
-
 <body>
+<script>
+    const remote = require('electron').remote;
+    const TitlebarWindows = require('electron-titlebar-windows');
+    const titlebar = new TitlebarWindows({
+        darkMode: true,
+        draggable: true
+    });
+    titlebar.appendTo(document.body);
+    titlebar.on('close', function (e) {
+        var window = remote.getCurrentWindow();
+        window.close();
+    });
+    titlebar.on('minimize', function (e) {
+        var window = remote.getCurrentWindow();
+        window.minimize();
+    });
+    titlebar.on('maximize', function (e) {
+        var window = remote.getCurrentWindow();
+        window.setFullScreen(false);
+    });
+    titlebar.on('fullscreen', function (e) {
+        var window = remote.getCurrentWindow();
+        window.setFullScreen(true);
+    });
+</script>
 
 <div id="nico">
 </div>
-
 <div id="menu" class="no-drag">
     <label>hashtag</label>
     <input type="text" id="hashtag" placeholder="#hogehoge" value="#cf_vanguard">
@@ -25,10 +48,6 @@
 </div>
 <script src="nico-css.js"></script>
 <script src="js/commentary.js"></script>
+
 </body>
 </html>
-
-<!--開始日時-->
-<!--何分間-->
-<!--/再生-->
-<!--一時停止-->

@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "co": "^4.6.0",
+    "electron-titlebar-windows": "^2.1.0",
     "twitter": "latest"
   },
   "devDependencies": {
