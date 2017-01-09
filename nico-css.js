@@ -18,9 +18,9 @@ function NicoCSS(params) {
 	// this.height = params.height;
 	// element
 	this.ele = params.ele;
-	this.ele.style.whiteSpace = 'nowrap';
-	this.ele.style.overflow = 'hidden';
-	this.ele.style.position = 'relative';
+	// this.ele.style.whiteSpace = 'nowrap';
+	// this.ele.style.overflow = 'hidden';
+	// this.ele.style.position = 'relative';
 	this.ele.style.backgroundColor = 'rgba(0, 0, 0, 0.0);';
 	this.ele.style.width = this.width+'px';
 	this.ele.style.height = this.height+'px';

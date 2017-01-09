@@ -9,7 +9,7 @@ body {
 #nico {
     white-space: nowrap;
     overflow: hidden;
-    position: relative;
+    /*position: relative;*/
     width: 100%;
 }
 
