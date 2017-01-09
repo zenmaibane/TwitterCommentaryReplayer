@@ -10,26 +10,10 @@ var nico = new NicoCSS({
 nico.listen();
 var Twitter = require('twitter');
 
-var consumer_key = '';
-var consumer_secret = '';
-var bearer_token = '';
-function initialize() {
-    var fs = require('fs');
-    var text = fs.readFileSync('keys.txt', 'utf-8');
-    var keys = text.split("\n");
-    for (var i = 0; i < keys.length; i++) {
-        keys[i] = keys[i].substring(keys[i].indexOf("\'") + 1, keys[i].lastIndexOf("\'"));
-    }
-    consumer_key = keys[0];
-    consumer_secret = keys[1];
-    bearer_token = keys[2];
-}
-initialize();
-
 var client = new Twitter({
-    consumer_key: consumer_key,
-    consumer_secret: consumer_secret,
-    bearer_token: bearer_token,
+    consumer_key: 'zaYyuZDTedazdMPPJFa72Ad4W',
+    consumer_secret: '97d5ABOznWsYfg9bk3GXki4OFZWsMdHZaeTMEpKDzUGoEalODV',
+    bearer_token: 'AAAAAAAAAAAAAAAAAAAAALBByAAAAAAAWltADVCDgO05i67wgdS940p9%2BM4%3DLqeNu95fIfPJVaAm6cti6msEP41HclxQyNPfUHLs6yZE4wRth6',
 });
 
 $(function () {
