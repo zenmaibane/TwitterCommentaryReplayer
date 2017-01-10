@@ -8,7 +8,7 @@ var nico = new NicoCSS({
 });
 
 nico.listen();
-var Twitter = require('twitter');
+var Twitter = require('twitter');//node-twitterの読み込み
 
 var client = new Twitter({
     consumer_key: 'zaYyuZDTedazdMPPJFa72Ad4W',
@@ -21,10 +21,10 @@ $(function () {
         $("body").css("background-color", "rgba(0, 0, 0, 0.0)");
         $(".titlebar").css("background-color", "rgba(0, 0, 0, 0.0)");
         var hashtag = $("#hashtag").val();
+        var operatingSecond = $("#minutes").val() * 60;
         var startTime = $("#startTime").val() + ":00";
         var tempTime = startTime.split("_");
         var date = new Date(tempTime[0] + " " + tempTime[1]);
-        var operatingSecond = $("#minutes").val() * 60;
         var intervalSeconds = 3;
         var intervalMiliSeconds = intervalSeconds * 1000;
         var sinceTime = date;
@@ -58,7 +58,6 @@ $(function () {
                         for (var i = 0; i < tweetIndex; i++) {
                             if (!tweets.statuses[i].in_reply_to_user_id) {
                                 //ハッシュタグ消去
-                                console.log(tweets.statuses[i].text.replace(/#.+($| |\n)/g, " "));
                                 nico.send(tweets.statuses[i].text.replace(/#.+($| |\n)/g, " "));
                             }
                         }
@@ -82,11 +81,7 @@ $(window).on('load resize', function () {
 });
 
 function compareFav(a, b) {
-    var i = b.favorite_count - a.favorite_count;
-    if (i == 0) {
-        return b.retweet_count - a.retweet_count;
-    }
-    return i;
+    return (b.favorite_count + b.retweet_count) - (a.favorite_count + a.retweet_count);
 }
 
 function formatDate(date) {
