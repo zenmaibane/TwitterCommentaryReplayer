@@ -25,7 +25,7 @@ $(function () {
         var startTime = $("#startTime").val() + ":00";
         var tempTime = startTime.split("_");
         var date = new Date(tempTime[0] + " " + tempTime[1]);
-        var intervalSeconds = 3;
+        var intervalSeconds = 2;
         var intervalMiliSeconds = intervalSeconds * 1000;
         var sinceTime = date;
         var copyDate = new Date(date.getTime());
