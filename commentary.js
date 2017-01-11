@@ -22,7 +22,7 @@ $(function () {
         $(".titlebar").css("background-color", "rgba(0, 0, 0, 0.0)");
         var hashtag = $("#hashtag").val();
         var operatingSecond = $("#minutes").val() * 60;
-        var startTime = $("#startTime").val() + ":00";
+        var startTime = $("#startTime").val();
         var tempTime = startTime.split("_");
         var date = new Date(tempTime[0] + " " + tempTime[1]);
         var intervalSeconds = 2;
@@ -50,6 +50,7 @@ $(function () {
                         count: 20
                     }, function (error, tweets, response) {
                         if (error) throw error;
+                        console.log(q)
                         var tweetIndex = tweets.statuses.length;
                         if (tweets.statuses.length > commentNum) {
                             tweets.statuses.sort(compareFav);
