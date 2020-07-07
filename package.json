@@ -15,6 +15,6 @@
     "twitter": "latest"
   },
   "devDependencies": {
-    "electron": "^1.4.13"
+    "electron": "^9.1.0"
   }
 }
